@@ -14,7 +14,7 @@ const MainWrapper = styled.div`
 
 export const Layout = ({ children }) => {
   return (
-    <>
+    <div>
       <GlobalStyles />
       <TitleBar />
       <PageWrapper>
@@ -24,6 +24,6 @@ export const Layout = ({ children }) => {
           {children}
         </MainWrapper>
       </PageWrapper>
-    </>
+    </div>
   )
 }
