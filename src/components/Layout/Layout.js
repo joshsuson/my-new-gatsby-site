@@ -5,11 +5,16 @@ import { TitleBar, Sidebar, TopNavBar } from "."
 
 const PageWrapper = styled.div`
   background-color: var(--background);
+  margin-bottom: 32px;
 `
 
 const MainWrapper = styled.div`
   margin-left: 255px;
   height: 100vh;
+`
+
+const InnerWrapper = styled.div`
+  width: min(90%, 1000px);
 `
 
 export const Layout = ({ children }) => {
@@ -21,7 +26,7 @@ export const Layout = ({ children }) => {
         <Sidebar />
         <MainWrapper>
           <TopNavBar />
-          {children}
+          <InnerWrapper>{children}</InnerWrapper>
         </MainWrapper>
       </PageWrapper>
     </div>

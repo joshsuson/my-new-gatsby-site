@@ -12,6 +12,7 @@ const TitleBarWrapper = styled.div`
   border-bottom: 1px solid hsla(207, 1%, 69%, 0.3);
   position: sticky;
   top: 0;
+  z-index: 10;
 `
 
 const CircleWrapper = styled.div`
