@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { BiCodeAlt } from "react-icons/bi"
 import { RiSettings3Fill } from "react-icons/ri"
 import { HiOutlineDocumentText } from "react-icons/hi"
+import { useSiteContext } from "../../context/SiteContext"
 
 const ButtonWrapper = styled.div`
   grid-column: 5 / span 4;
@@ -14,7 +15,8 @@ const ButtonWrapper = styled.div`
 
 const IconDiv = styled.div`
   margin-right: 8px;
-  color: var(--secondary-text);
+  color: ${props =>
+    props.active ? "var(--primary-text)" : "var(--secondary-text)"};
   font-size: 2rem;
   border-radius: 100%;
   height: 30px;
@@ -22,6 +24,7 @@ const IconDiv = styled.div`
   display: grid;
   place-items: center;
   cursor: pointer;
+  background: ${props => (props.active ? "var(--background)" : "transparent")};
 
   &:hover {
     background-color: var(--background);
@@ -30,12 +33,19 @@ const IconDiv = styled.div`
 `
 
 export const SettingsButtons = () => {
+  const { setShowCode, showCode } = useSiteContext()
   return (
     <ButtonWrapper>
-      <IconDiv>
+      <IconDiv
+        active={showCode ? true : false}
+        onClick={() => setShowCode(true)}
+      >
         <BiCodeAlt />
       </IconDiv>
-      <IconDiv>
+      <IconDiv
+        active={showCode ? false : true}
+        onClick={() => setShowCode(false)}
+      >
         <HiOutlineDocumentText />
       </IconDiv>
       <IconDiv>

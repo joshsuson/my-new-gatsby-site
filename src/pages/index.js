@@ -1,10 +1,15 @@
 import * as React from "react"
-import { Jumbotron } from "../components/HomePage"
+import { FormattedHomePage, HomePageCode } from "../components/HomePage"
+import { useSiteContext } from "../context/SiteContext"
 
-const IndexPage = () => (
-  <div>
-    <Jumbotron />
-  </div>
-)
+const IndexPage = () => {
+  const { showCode } = useSiteContext()
+  return (
+    <div>
+      {!showCode && <FormattedHomePage />}
+      {!!showCode && <HomePageCode />}
+    </div>
+  )
+}
 
 export default IndexPage
