@@ -1,20 +1,20 @@
 import React from "react"
 import styled from "styled-components"
-import { HomePageImports, HomePageCSS } from "."
-import { EmptyRow } from "../CodeComponents"
+import { CopyBlock } from "react-code-blocks"
+import { homePageCode } from "../../data/homePageCode"
+import { useSiteContext } from "../../context/SiteContext"
 
-const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  padding: 4px 32px;
+const NoButton = styled.div`
+  > div > button {
+    display: none;
+  }
 `
 
 export const HomePageCode = () => {
+  const { theme } = useSiteContext()
   return (
-    <Wrapper>
-      <HomePageImports />
-      <EmptyRow number="9" />
-      <HomePageCSS />
-    </Wrapper>
+    <NoButton>
+      <CopyBlock language="jsx" text={homePageCode} theme={theme} codeBlock />
+    </NoButton>
   )
 }

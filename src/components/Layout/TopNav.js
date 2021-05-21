@@ -19,7 +19,7 @@ const LinkWrapper = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: var(--lightest-grey);
+    background-color: var(--light-grey);
   }
 `
 
@@ -33,7 +33,7 @@ const CustomLink = styled(Link)`
   width: 100%;
 
   &[aria-current="page"] {
-    background-color: var(--lightest-grey);
+    background-color: var(--light-grey);
   }
 `
 

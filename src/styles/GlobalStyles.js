@@ -3,24 +3,24 @@ import { createGlobalStyle } from "styled-components"
 const GlobalStyles = createGlobalStyle`
 
 html {
-    --background: #222228;
-    --title-bar: #37383a;
-    --dark-grey: #2a2d31;
-    --grey: #2f3236;
-    --light-grey: #37383a;
-    --lightest-grey: #595b5d;
-    --primary-text: #e3e3e3;
-    --secondary-text: #aeafb0;
-    --first-color: #ff7568;
-    --second-color: #c6a8ef;
-    --third-color: #6ebfae;
-    --fourth-color: #ffdb03;
-    --fifth-color: #ff86ba;
+    --background: ${({ theme }) => theme.background};
+    --title-bar: ${({ theme }) => theme.titleBar};
+    --dark-grey: ${({ theme }) => theme.darkGrey};
+    --grey: ${({ theme }) => theme.grey};
+    --light-grey: ${({ theme }) => theme.lightGrey};
+    --primary-text: ${({ theme }) => theme.primaryText};
+    --secondary-text: ${({ theme }) => theme.secondaryText};
+    --first-color: ${({ theme }) => theme.firstColor};
+    --second-color: ${({ theme }) => theme.secondColor};
+    --third-color: ${({ theme }) => theme.thirdColor};
+    --fourth-color: ${({ theme }) => theme.fourthColor};
+    --fifth-color: ${({ theme }) => theme.fifthColor};
     --apple-red: #ff5f57;
     --apple-green: #28c840;
     --apple-yellow: #febc2e;
-    --scrollbar: hsla(208, 2%, 36%, .75);
+    --scrollbar: ${({ theme }) => theme.scrollbar};
     --page-icon: #efd81d;
+    --layout-border: ${({ theme }) => theme.layoutBorder};
     box-sizing: border-box;
     font-size: 10px;
 }
@@ -36,6 +36,9 @@ body {
     font-size: 1.5rem;
     line-height: 2;
     background-color: var(--background);
+    height: ${props => (props.modalOpen ? "100vh" : "auto")};
+    overflow: ${props => (props.modalOpen ? "hidden" : "auto")};
+    padding-right: ${props => (props.modalOpen ? "15px" : "0")};
 }
 
 *::-webkit-scrollbar {

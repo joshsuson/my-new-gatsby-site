@@ -11,7 +11,7 @@ const SidebarWrapper = styled.div`
   position: fixed;
   top: 31px;
   padding: 1rem;
-  border-right: hsla(0, 0%, 0%, 0.75) 1px solid;
+  border-right: var(--layout-border) 1px solid;
 `
 
 const NavHeading = styled.h3`

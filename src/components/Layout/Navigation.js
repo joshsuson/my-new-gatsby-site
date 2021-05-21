@@ -12,7 +12,7 @@ const CustomLink = styled(Link)`
   width: 100%;
 
   &[aria-current="page"] {
-    background-color: var(--lightest-grey);
+    background-color: var(--light-grey);
   }
 `
 
@@ -21,7 +21,7 @@ const LinkWrapper = styled.div`
   align-items: center;
 
   &:hover {
-    background-color: var(--lightest-grey);
+    background-color: var(--light-grey);
   }
 `
 

@@ -24,16 +24,16 @@ const IconDiv = styled.div`
   display: grid;
   place-items: center;
   cursor: pointer;
-  background: ${props => (props.active ? "var(--background)" : "transparent")};
+  background: ${props => (props.active ? "var(--light-grey)" : "transparent")};
 
   &:hover {
-    background-color: var(--background);
+    background-color: var(--light-grey);
     color: var(--primary-text);
   }
 `
 
 export const SettingsButtons = () => {
-  const { setShowCode, showCode } = useSiteContext()
+  const { setShowCode, showCode, handleOpenModal } = useSiteContext()
   return (
     <ButtonWrapper>
       <IconDiv
@@ -48,7 +48,7 @@ export const SettingsButtons = () => {
       >
         <HiOutlineDocumentText />
       </IconDiv>
-      <IconDiv>
+      <IconDiv onClick={() => handleOpenModal()}>
         <RiSettings3Fill />
       </IconDiv>
     </ButtonWrapper>
