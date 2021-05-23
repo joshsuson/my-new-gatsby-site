@@ -27,23 +27,7 @@ export default function SiteContextProvider({ children }) {
   const [showCode, setShowCode] = useState(false)
   const [theme, setTheme] = useState(atomOneDark)
   const [selectedTheme, setSelectedTheme] = useState({})
-  const [colorScheme, setColorScheme] = useState({ ...atomOneDarkColors })
-  const [cssTheme, setCssTheme] = useState({
-    background: colorScheme.background,
-    titleBar: colorScheme.titleBar,
-    darkGrey: colorScheme.darkGrey,
-    grey: colorScheme.grey,
-    lightGrey: colorScheme.lightGrey,
-    primaryText: colorScheme.primaryText,
-    secondaryText: colorScheme.secondaryText,
-    firstColor: colorScheme.firstColor,
-    secondColor: colorScheme.secondColor,
-    thirdColor: colorScheme.thirdColor,
-    fourthColor: colorScheme.fourthColor,
-    fifthColor: colorScheme.fifthColor,
-    scrollbar: colorScheme.scrollbar,
-    layoutBorder: colorScheme.layoutBorder,
-  })
+  const [cssTheme, setCssTheme] = useState(atomOneDarkColors)
 
   const handleOpenModal = () => {
     setModalOpen(true)
@@ -114,23 +98,22 @@ export default function SiteContextProvider({ children }) {
     }
     switch (selectedTheme.name) {
       case "atomOneLight":
-        console.log("working")
-        setColorScheme({ ...atomOneLightColors })
+        setCssTheme(atomOneLightColors)
         break
       case "atomOneDark":
-        setColorScheme({ ...atomOneDarkColors })
+        setCssTheme(atomOneDarkColors)
         break
       case "tomorrow":
-        setColorScheme({ ...tomorrowColors })
+        setCssTheme(tomorrowColors)
         break
       case "dracula":
-        setColorScheme({ ...draculaColors })
+        setCssTheme(draculaColors)
         break
       case "far":
-        setColorScheme({ ...farColors })
+        setCssTheme(farColors)
         break
       case "shadesOfPurple":
-        setColorScheme({ ...shadesOfPurpleColors })
+        setCssTheme(shadesOfPurpleColors)
         break
       default:
         console.log("Select a theme")
@@ -149,7 +132,6 @@ export default function SiteContextProvider({ children }) {
     handleSelectTheme,
     selectedTheme,
     handleConfirmTheme,
-    colorScheme,
   }
 
   return (

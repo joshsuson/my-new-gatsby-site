@@ -1,6 +1,6 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import GlobalStyles from "../../styles/GlobalStyles"
-import styled from "styled-components"
+import styled, { ThemeProvider } from "styled-components"
 import { TitleBar, Sidebar, TopNavBar, SettingsModal } from "."
 import { useSiteContext } from "../../context/SiteContext"
 
@@ -20,19 +20,26 @@ const InnerWrapper = styled.div`
 
 export const Layout = ({ children }) => {
   const { cssTheme, modalOpen } = useSiteContext()
+  const [theme, setTheme] = useState(cssTheme)
+
+  useEffect(() => {
+    setTheme(cssTheme)
+  }, [cssTheme, theme])
 
   return (
-    <div>
-      <GlobalStyles theme={cssTheme} modalOpen={modalOpen} />
-      {!!modalOpen && <SettingsModal />}
-      <TitleBar />
-      <PageWrapper>
-        <Sidebar />
-        <MainWrapper>
-          <TopNavBar />
-          <InnerWrapper>{children}</InnerWrapper>
-        </MainWrapper>
-      </PageWrapper>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div>
+        <GlobalStyles modalOpen={modalOpen} />
+        {!!modalOpen && <SettingsModal />}
+        <TitleBar />
+        <PageWrapper>
+          <Sidebar />
+          <MainWrapper>
+            <TopNavBar />
+            <InnerWrapper>{children}</InnerWrapper>
+          </MainWrapper>
+        </PageWrapper>
+      </div>
+    </ThemeProvider>
   )
 }

@@ -90,7 +90,7 @@ const Confirm = styled.button`
 `
 
 export const SettingsModal = () => {
-  const { handleCloseModal, handleConfirmTheme, colorScheme } = useSiteContext()
+  const { handleCloseModal, handleConfirmTheme } = useSiteContext()
   return (
     <Overlay>
       <Modal>
@@ -104,7 +104,6 @@ export const SettingsModal = () => {
         <ButtonDiv>
           <Cancel onClick={() => handleCloseModal()}>Cancel</Cancel>
           <Confirm onClick={() => handleConfirmTheme()}>Confirm</Confirm>
-          <button onClick={() => console.log(colorScheme)}>Color Scheme</button>
         </ButtonDiv>
       </Modal>
     </Overlay>
