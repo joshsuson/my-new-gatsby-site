@@ -14,14 +14,20 @@ const ButtonOverlay = styled.div`
   height: 100%;
 `
 
-export const ThemeContainer = ({ id, title, colorTheme, borderColor }) => {
+export const ThemeContainer = ({
+  id,
+  title,
+  colorTheme,
+  borderColor,
+  theme,
+}) => {
   const { handleSelectTheme, selectedTheme } = useSiteContext()
   return (
     <>
       <ThemeWrapper
         selectedTheme={selectedTheme}
         id={id}
-        onClick={e => handleSelectTheme(e)}
+        onClick={() => handleSelectTheme(theme)}
       >
         <ButtonOverlay></ButtonOverlay>
         <ThemeTitle>{title}</ThemeTitle>

@@ -1,24 +1,24 @@
 import React from "react"
 import { ThemeContainer } from "."
 import { ThemeSectionHeading } from "../../styles/ModalThemeStyles"
-import { draculaColors, atomOneDarkColors } from "../../styles/themeColors"
+import { themes } from "../../styles/themeColors"
+
+const darkThemes = themes.filter(theme => theme.themeType === "dark")
 
 export const DarkThemes = () => {
   return (
     <div>
       <ThemeSectionHeading>Dark Themes</ThemeSectionHeading>
-      <ThemeContainer
-        title="Atom One Dark"
-        colorTheme={atomOneDarkColors}
-        borderColor="hsla(100, 100%, 100%, .5)"
-        id="atomOneDark"
-      />
-      <ThemeContainer
-        title="Dracula"
-        colorTheme={draculaColors}
-        borderColor="hsla(100, 100%, 100%, .5)"
-        id="dracula"
-      />
+      {darkThemes.map(theme => (
+        <ThemeContainer
+          title={theme.label}
+          colorTheme={theme.colors}
+          id={theme.id}
+          key={theme.id}
+          borderColor="hsla(0, 0%, 0%, .5)"
+          theme={theme}
+        />
+      ))}
     </div>
   )
 }

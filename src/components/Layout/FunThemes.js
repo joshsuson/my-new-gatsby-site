@@ -1,24 +1,24 @@
 import React from "react"
 import { ThemeContainer } from "."
 import { ThemeSectionHeading } from "../../styles/ModalThemeStyles"
-import { farColors, shadesOfPurpleColors } from "../../styles/themeColors"
+import { themes } from "../../styles/themeColors"
+
+const funThemes = themes.filter(theme => theme.themeType === "fun")
 
 export const FunThemes = () => {
   return (
     <div>
       <ThemeSectionHeading>Off The Wall</ThemeSectionHeading>
-      <ThemeContainer
-        title="Far"
-        colorTheme={farColors}
-        borderColor="hsla(100, 100%, 100%, .5)"
-        id="far"
-      />
-      <ThemeContainer
-        title="Shades of Purple"
-        colorTheme={shadesOfPurpleColors}
-        borderColor="hsla(100, 100%, 100%, .5)"
-        id="shadesOfPurple"
-      />
+      {funThemes.map(theme => (
+        <ThemeContainer
+          title={theme.label}
+          colorTheme={theme.colors}
+          id={theme.id}
+          key={theme.id}
+          borderColor="hsla(0, 0%, 0%, .5)"
+          theme={theme}
+        />
+      ))}
     </div>
   )
 }

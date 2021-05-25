@@ -11,9 +11,7 @@ export const ThemeWrapper = styled.div`
   padding: 4px;
   position: relative;
   background-color: ${props =>
-    props.selectedTheme.name === props.id
-      ? "var(--light-grey)"
-      : "transparent"};
+    props.selectedTheme.id === props.id ? "var(--light-grey)" : "transparent"};
 
   &:hover {
     background-color: var(--light-grey);

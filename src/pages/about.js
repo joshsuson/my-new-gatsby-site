@@ -1,28 +1,26 @@
 import React from "react"
-import { CopyBlock } from "react-code-blocks"
-import aboutCode from "../data/aboutPageCode"
-import styled from "styled-components"
-import { useSiteContext } from "../context/SiteContext"
+import { themes } from "../styles/themeColors"
 
-const NoButton = styled.div`
-  > div > button {
-    display: none;
-  }
-`
+const lightThemes = themes.filter(theme => theme.themeType === "light")
+
+const darkThemes = themes.filter(theme => theme.themeType === "dark")
+
+const handleClick = title => {
+  const clickedTheme = themes.find(theme => theme.title === title)
+  console.log(clickedTheme.colors)
+}
 
 export default function AboutPage() {
-  const { theme } = useSiteContext()
   return (
     <div>
-      <NoButton>
-        <CopyBlock
-          language="jsx"
-          text={aboutCode}
-          showLineNumbers={true}
-          theme={theme}
-          codeBlock
-        />
-      </NoButton>
+      <h1>Dark Themes</h1>
+      {darkThemes.map(theme => (
+        <button onClick={() => handleClick(theme.title)}>{theme.label}</button>
+      ))}
+      <h1>Light Themes</h1>
+      {lightThemes.map(theme => (
+        <button>{theme.label}</button>
+      ))}
     </div>
   )
 }
