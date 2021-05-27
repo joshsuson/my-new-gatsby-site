@@ -56,10 +56,10 @@ const ButtonDiv = styled.div`
 
 const Cancel = styled.button`
   padding: 8px 16px;
-  background-color: var(--first-color);
-  color: var(--primary-text);
+  background-color: transparent;
+  color: var(--settings-button);
   text-transform: uppercase;
-  border: none;
+  border: 2px solid var(--settings-button);
   font-family: "Fira Code", monospace;
   font-size: 1.75rem;
   margin-right: 16px;
@@ -74,10 +74,10 @@ const Cancel = styled.button`
 
 const Confirm = styled.button`
   padding: 8px 16px;
-  background-color: var(--third-color);
-  color: var(--secondary-text);
+  background-color: var(--settings-button);
+  color: white;
   text-transform: uppercase;
-  border: none;
+  border: 2px solid var(--settings-button);
   font-family: "Fira Code", monospace;
   font-size: 1.75rem;
   cursor: pointer;

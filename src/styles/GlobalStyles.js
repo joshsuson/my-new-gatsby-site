@@ -21,6 +21,7 @@ html {
     --scrollbar: ${({ theme }) => theme.scrollbar};
     --page-icon: #efd81d;
     --layout-border: ${({ theme }) => theme.layoutBorder};
+    --settings-button: hsl(200, 100%, 33%);
     box-sizing: border-box;
     font-size: 10px;
 }
